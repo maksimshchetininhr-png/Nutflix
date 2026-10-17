@@ -1,22 +1,23 @@
-# Nutflix TV 0.3.0 — in-app catalogue
+# Nutflix TV 0.4.0 — Matilda edition
 
-Nutflix now starts in its own TV interface, populated automatically from FramexTV's public metadata service. Use the remote to browse poster rows, search, open title details, choose seasons and episodes, and maintain My list. No pasted links or mouse are needed for normal browsing. The source website is available as an optional Settings fallback.
+The home title is now “nutflix. Matilda edition”.
 
-Movies, series, and anime have separate paginated browsing screens. Continue watching stores progress on the device. Playback uses the provider's documented embed interface and remote player controls.
+Playback uses the source website’s actual player interface, without a duplicate Nutflix seek/options bar:
 
-## Update installation
+- Left/right on the remote seek backward/forward ten seconds; there are no separate +10s or −10s buttons.
+- Down opens and focuses the player timeline. Down again moves into the player button row.
+- Arrows and OK operate the source’s quality, subtitle, speed, volume, and server menus when available for the current stream. Subtitle choices use the source’s named tracks.
+- Playing video hides title/timeline overlays after five seconds without remote input. Paused playback and open menus keep controls visible. Captions remain visible.
+- Back closes a menu, then hides playback controls, then returns Home.
 
-- Version 0.3.0, Android version code 3, package tv.nutflix.
-- Signing certificate matches the published 0.1 and 0.2 APKs. Install over your current version without uninstalling.
-- Existing saved links are retained. New bookmarks and playback progress are stored locally.
-- Android TV / Google TV, Android 6.0 or later. See INSTALL.md for USB or ADB installation.
+## Install/update
 
-## Validation and limits
+Version 0.4.0, Android version code 4, package tv.nutflix. Signing matches the published 0.1, 0.2, and 0.3 builds. Install over your current version without uninstalling. My list and local playback progress remain on the device. See INSTALL.md.
 
-- Eleven core/catalogue checks and eighteen browser tests passed.
-- Live metadata checks loaded 187 title cards with real posters, searched for Big Buck Bunny, and retrieved ten episodes for Game of Thrones season 2, with no JavaScript errors.
-- APK signatures, package version, and update-signing compatibility were verified.
-- Physical TV installation, remote behavior on the TV, and actual provider video playback still require a device check. A title listing does not guarantee an available stream.
-- The public AniList service rejected cloud requests with HTTP 403. Anime browsing works through the catalogue service; anime-specific search and detailed episode guides depend on AniList access from the TV. The app shows a clear guide fallback with episode-number selection when needed.
+## Validation and limitations
 
-This is a sideloadable development build. No streaming credentials, API keys, or private signing key are included.
+Eleven unit/contract checks and twenty-two browser tests pass. New player tests cover single remote commands, timeline focus, quality/subtitle selection, scrolling long menus, Back behavior, five-second hiding, paused playback, and open menus. Native Android builds and APK signature verification pass.
+
+The real provider’s published control labels were inspected over verified HTTPS. The player-navigation tests use independent fixtures; physical TV playback and controls still need a check on the TV. Available quality/subtitle/server choices depend on the current stream, and a provider interface redesign may require an adapter update. Live catalogue browsing is retained from version 0.3. Anime search/guide access still depends on AniList availability.
+
+This is a sideloadable development build. No private signing key or service credentials are included.

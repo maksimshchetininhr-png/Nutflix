@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `dist/Nutflix-TV.apk` (version **0.3.0**, Android version code **3**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1 or 0.2: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.4.0**, Android version code **4**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, or 0.3: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Using a USB stick
 
@@ -46,10 +46,14 @@ The normal catalogue is Nutflix’s own interface populated from FramexTV’s pu
 | Home, catalogue, title details | Arrows move focus; OK selects; Back closes a window or returns Home |
 | Search | OK on the field opens the TV keyboard; Down leaves the field for results or Search |
 | Season/episode guide | Arrows select a season or episode; OK opens it |
-| Player | OK plays/pauses; left/right seek 10 seconds; up/down cycle player buttons |
+| Video playing | OK plays/pauses; left/right seek 10 seconds; Down opens the timeline |
+| Player timeline and menus | Left/right scrub the timeline or move between buttons; Down enters the button row; arrows + OK choose settings |
+| Player Back | Closes a menu, then hides controls, then returns Home |
 | App settings | Select the N profile button, or press Menu |
 
-Player options expose the documented provider, subtitle-index, and player-volume controls. The TV volume keys continue to control TV audio.
+The player uses FramexTV’s real menus: select **Player Settings** for quality and other available options, **Subtitles / Captions** for named subtitle tracks, or the top **Server** button for available sources. Options depend on the current stream. The TV volume keys control TV audio.
+
+The home title is **nutflix. Matilda edition**. While video plays, title and timeline overlays fade after **five seconds** without remote input. Paused playback and open menus keep controls visible. No separate +10s/−10s buttons are shown.
 
 Anime-specific search and detailed episode guides depend on the public AniList service. If that service rejects the connection, use Everything search or browse the Anime categories. The guide fallback is clearly labelled and lets you choose an episode number; it does not claim a known total count.
 
@@ -59,7 +63,7 @@ Anime-specific search and detailed episode guides depend on the public AniList s
 - **An update reports a signature conflict:** use the same development keystore for subsequent builds. Removing the old app permits a differently signed build but deletes that app's local library; preserve any links you need before doing so.
 - **Blank page or a missing control:** update Android System WebView and Chrome from the Play Store, then reopen Nutflix.
 - **Catalogue does not load:** check the TV’s Internet connection and select **Retry catalogue**. Catalogue requests use `api.framextv.tech`; playback uses `framextv.xyz`.
-- **Playback never starts:** try Play again or another provider in Player options. A catalogue listing does not guarantee that a playable source is currently available.
+- **Playback never starts:** try Play again or another source from the player’s Server menu. A catalogue listing does not guarantee that a playable source is currently available.
 - **A control loses focus:** press an arrow or Back. Keep Android System WebView up to date. The normal catalogue uses packaged controls, so website layout changes do not affect its navigation.
 - **A website login needs third-party cookies or a popup:** those capabilities are restricted in this build. A supported authentication integration would need separate implementation.
 - **A direct link fails:** it must be an HTTPS media address playable by the TV, with any access the source requires. A normal website page is not a direct video link. The browser development player and Android player support different formats.
