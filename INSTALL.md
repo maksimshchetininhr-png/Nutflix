@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `dist/Nutflix-TV.apk` (version **0.2.0**, Android version code **2**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `dist/Nutflix-TV.apk` (version **0.3.0**, Android version code **3**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1 or 0.2: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Using a USB stick
 
@@ -30,36 +30,37 @@ The cloud machine cannot directly connect to your home television. Run these com
 
 ## Browse and watch
 
-1. Open **Nutflix**. It goes directly to the FramexTV catalogue.
-2. Use the **arrow keys** to move the green highlight between title cards, navigation buttons, and menus. Long title rows scroll as you move.
-3. Press **OK** on a title to open its details, then choose its watch/play button. For a series, select its season and episode using the same controls.
-4. For search, focus the source’s Search control and press OK. Use the TV keyboard to enter the title name.
-5. Press **Back** to close a menu or return to the previous screen.
+1. Open **Nutflix**. The featured title and real poster rows load automatically.
+2. Use arrows to move between posters and buttons. Press **OK** for a title’s details or its Play button.
+3. Use **Movies**, **Series**, or **Anime** for paginated catalogue browsing.
+4. Select **Search**, enter a title using the TV keyboard, then move down to the **Search** button and press OK.
+5. In a series’ details, choose a season and an episode. Future episodes are labelled and disabled.
+6. Select **Add to my list** to keep a title. Played titles with saved progress appear in **Continue watching**.
 
-You do not need to enter title IDs or paste links to browse the catalogue. FramexTV supplies the current catalogue, search results, seasons, and playback through its own public interface; Nutflix adds the TV controls to that interface. Its separate pointer mode has been removed.
+The normal catalogue is Nutflix’s own interface populated from FramexTV’s public metadata service. No website browsing, manual title IDs, or pasted links are needed. The optional **Open source website** button is in Settings.
 
 ## Remote controls
 
 | Screen | Controls |
 | --- | --- |
-| Catalogue, details, and episodes | Arrows move the focus highlight; OK selects; Back closes a menu or returns |
-| Search | OK on the search field opens the TV keyboard |
-| Catalogue playback | OK sends play/pause; left/right seek 10 seconds; up/down switch to the player’s buttons |
-| App options | Menu opens the toolbar; select Catalogue, Saved links, Back, Reload, or Player controls |
-| Optional embedded player | OK plays/pauses; left/right seek; up/down cycle controls |
-| Personal video | OK plays/pauses; left/right seek; Back saves progress and returns |
+| Home, catalogue, title details | Arrows move focus; OK selects; Back closes a window or returns Home |
+| Search | OK on the field opens the TV keyboard; Down leaves the field for results or Search |
+| Season/episode guide | Arrows select a season or episode; OK opens it |
+| Player | OK plays/pauses; left/right seek 10 seconds; up/down cycle player buttons |
+| App settings | Select the N profile button, or press Menu |
 
-**Menu → Player controls** switches between navigating the player’s buttons and direct play/pause/seeking commands. Select a visible provider/subtitle/settings control with arrows and OK when available. The TV’s volume buttons control TV audio normally.
+Player options expose the documented provider, subtitle-index, and player-volume controls. The TV volume keys continue to control TV audio.
 
-**Menu → Saved links** opens your optional local collection from version 0.1, including its playback test and manual-link features. The source’s own watchlist and history stay available in its catalogue.
+Anime-specific search and detailed episode guides depend on the public AniList service. If that service rejects the connection, use Everything search or browse the Anime categories. The guide fallback is clearly labelled and lets you choose an episode number; it does not claim a known total count.
 
 ## Troubleshooting
 
 - **App does not install:** verify that the TV uses Android TV / Google TV and Android 6 or newer, that the transfer completed, and that the file-manager app has installation permission. Titan OS and Saphi require different app formats.
 - **An update reports a signature conflict:** use the same development keystore for subsequent builds. Removing the old app permits a differently signed build but deletes that app's local library; preserve any links you need before doing so.
 - **Blank page or a missing control:** update Android System WebView and Chrome from the Play Store, then reopen Nutflix.
-- **FramexTV does not load or playback never starts:** check the TV’s Internet connection and access to the service. Press Menu → Reload. The current cloud proxy blocks live catalogue inspection; the new controls were tested against representative page fixtures and still need a check on the TV.
-- **A control loses its highlight:** wait for the page to finish loading, press an arrow key, or use Menu → Reload. The adapter watches dynamic page changes, but a future site redesign can require an app update.
+- **Catalogue does not load:** check the TV’s Internet connection and select **Retry catalogue**. Catalogue requests use `api.framextv.tech`; playback uses `framextv.xyz`.
+- **Playback never starts:** try Play again or another provider in Player options. A catalogue listing does not guarantee that a playable source is currently available.
+- **A control loses focus:** press an arrow or Back. Keep Android System WebView up to date. The normal catalogue uses packaged controls, so website layout changes do not affect its navigation.
 - **A website login needs third-party cookies or a popup:** those capabilities are restricted in this build. A supported authentication integration would need separate implementation.
 - **A direct link fails:** it must be an HTTPS media address playable by the TV, with any access the source requires. A normal website page is not a direct video link. The browser development player and Android player support different formats.
 
