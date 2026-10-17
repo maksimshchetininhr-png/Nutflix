@@ -1,23 +1,19 @@
-# Nutflix TV 0.4.0 — Matilda edition
+# Nutflix TV 0.4.1 — search keyboard and remote focus fixes
 
-The home title is now “nutflix. Matilda edition”.
+Selecting Search now explicitly requests the TV keyboard on the first visit, without requiring navigation away and back. Android waits for the focused editor and retries briefly if its input connection is not ready. A delayed request is ignored after focus moves away.
 
-Playback uses the source website’s actual player interface, without a duplicate Nutflix seek/options bar:
+Left/right on the closed media-type selector now moves to the neighbouring search field or Search button. Press OK to open the native type picker, use up/down to choose Everything, Movies, Series, or Anime, and OK to confirm. Search results refresh without stealing focus from the controls.
 
-- Left/right on the remote seek backward/forward ten seconds; there are no separate +10s or −10s buttons.
-- Down opens and focuses the player timeline. Down again moves into the player button row.
-- Arrows and OK operate the source’s quality, subtitle, speed, volume, and server menus when available for the current stream. Subtitle choices use the source’s named tracks.
-- Playing video hides title/timeline overlays after five seconds without remote input. Paused playback and open menus keep controls visible. Captions remain visible.
-- Back closes a menu, then hides playback controls, then returns Home.
+The Matilda edition title, real catalogue, remote player menus, and five-second playback overlay timeout remain available.
 
 ## Install/update
 
-Version 0.4.0, Android version code 4, package tv.nutflix. Signing matches the published 0.1, 0.2, and 0.3 builds. Install over your current version without uninstalling. My list and local playback progress remain on the device. See INSTALL.md.
+Version 0.4.1, Android version code 5, package tv.nutflix. The signing certificate matches the published 0.4.0 and earlier builds. Install over your current version without uninstalling; My list and viewing progress stay on the device. See INSTALL.md.
 
-## Validation and limitations
+## Validation
 
-Eleven unit/contract checks and twenty-two browser tests pass. New player tests cover single remote commands, timeline focus, quality/subtitle selection, scrolling long menus, Back behavior, five-second hiding, paused playback, and open menus. Native Android builds and APK signature verification pass.
+Eleven unit/contract checks and twenty-five browser tests pass. Three new regressions reproduced the original failures before the fixes and then passed: first-visit keyboard handoff, left/right exits for every search type, and result refresh without focus theft. Android build, package version, APK signatures, and update certificate compatibility were verified.
 
-The real provider’s published control labels were inspected over verified HTTPS. The player-navigation tests use independent fixtures; physical TV playback and controls still need a check on the TV. Available quality/subtitle/server choices depend on the current stream, and a provider interface redesign may require an adapter update. Live catalogue browsing is retained from version 0.3. Anime search/guide access still depends on AniList availability.
+Browser checks verify the keyboard-request handoff; actual on-screen keyboard display and native picker behavior still require a check on the TV. Available streams, quality/subtitle choices, and anime metadata remain dependent on the source services.
 
 This is a sideloadable development build. No private signing key or service credentials are included.

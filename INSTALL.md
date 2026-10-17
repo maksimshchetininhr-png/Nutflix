@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.4.0**, Android version code **4**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, or 0.3: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.4.1**, Android version code **5**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, 0.3, or 0.4: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Using a USB stick
 
@@ -33,7 +33,7 @@ The cloud machine cannot directly connect to your home television. Run these com
 1. Open **Nutflix**. The featured title and real poster rows load automatically.
 2. Use arrows to move between posters and buttons. Press **OK** for a title’s details or its Play button.
 3. Use **Movies**, **Series**, or **Anime** for paginated catalogue browsing.
-4. Select **Search**, enter a title using the TV keyboard, then move down to the **Search** button and press OK.
+4. Select **Search** to open the TV keyboard immediately. Enter a title, then move down to the **Search** button and press OK. To change media type, focus **Everything** (or the selected type) and press OK; use up/down to choose and OK to confirm. Left/right on the closed selector moves to the text field or Search button.
 5. In a series’ details, choose a season and an episode. Future episodes are labelled and disabled.
 6. Select **Add to my list** to keep a title. Played titles with saved progress appear in **Continue watching**.
 
@@ -44,7 +44,8 @@ The normal catalogue is Nutflix’s own interface populated from FramexTV’s pu
 | Screen | Controls |
 | --- | --- |
 | Home, catalogue, title details | Arrows move focus; OK selects; Back closes a window or returns Home |
-| Search | OK on the field opens the TV keyboard; Down leaves the field for results or Search |
+| Search | Entering Search opens the TV keyboard; OK on the field reopens it; Down leaves the field for results or Search |
+| Search media type | OK opens the picker; up/down choose; OK confirms; left/right on the closed picker move between controls |
 | Season/episode guide | Arrows select a season or episode; OK opens it |
 | Video playing | OK plays/pauses; left/right seek 10 seconds; Down opens the timeline |
 | Player timeline and menus | Left/right scrub the timeline or move between buttons; Down enters the button row; arrows + OK choose settings |
