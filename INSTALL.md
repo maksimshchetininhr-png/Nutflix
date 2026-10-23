@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.4.2**, Android version code **6**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, 0.3, or 0.4: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.5.0**, Android version code **7**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, 0.3, or 0.4: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Using a USB stick
 
@@ -63,11 +63,12 @@ Anime-specific search and detailed episode guides depend on the public AniList s
 - **App does not install:** verify that the TV uses Android TV / Google TV and Android 6 or newer, that the transfer completed, and that the file-manager app has installation permission. Titan OS and Saphi require different app formats.
 - **An update reports a signature conflict:** use the same development keystore for subsequent builds. Removing the old app permits a differently signed build but deletes that app's local library; preserve any links you need before doing so.
 - **Blank page or a missing control:** update Android System WebView and Chrome from the Play Store, then reopen Nutflix.
-- **Catalogue does not load:** check the TV’s Internet connection and select **Retry catalogue**. Catalogue requests use `api.framextv.tech`; playback uses `framextv.cc` (the old `framextv.xyz` address redirects there).
-- **Black screen after Play on version 0.4.1 or earlier:** install version 0.4.2. The source moved from `framextv.xyz` to `framextv.cc`; older builds block that redirect.
-- **Playback never starts:** a loading message appears while the player opens. If no video starts within 25 seconds, choose **Retry** or **Back**. You can also try another source from the player’s Server menu when it is available. A catalogue listing does not guarantee an available stream.
+- **Catalogue does not load:** check the TV’s Internet connection and select **Retry catalogue**. Catalogue requests use `api.framextv.tech`; playback starts at `framextv.cc` or the last working address discovered on this TV.
+- **The source changes domain:** version 0.5 checks its current address before playback and on Retry. It follows ordinary HTTPS redirects for the same movie/episode, then remembers the new address after video starts. No link entry or settings change is needed.
+- **Black screen on an older build:** install version 0.5.0. Earlier builds may block a new source domain.
+- **Playback never starts:** a brief address check runs first, then a loading message appears while the player opens. If no video starts within 25 seconds, choose **Retry** or **Back**. You can also try another source from the player’s Server menu when it is available. A catalogue listing does not guarantee an available stream.
 - **A control loses focus:** press an arrow or Back. Keep Android System WebView up to date. The normal catalogue uses packaged controls, so website layout changes do not affect its navigation.
 - **A website login needs third-party cookies or a popup:** those capabilities are restricted in this build. A supported authentication integration would need separate implementation.
 - **A direct link fails:** it must be an HTTPS media address playable by the TV, with any access the source requires. A normal website page is not a direct video link. The browser development player and Android player support different formats.
 
-Keep the built APK and its `.sha256` file together if sharing a build for installation. The development keystore is not included in the repository. This APK has not been submitted to the Play Store.
+Keep the built APK and its `.sha256` file together if sharing a build for installation. The development keystore is not included in the repository. This APK has not been submitted to the Play Store. Automatic domain redirects cannot repair a service outage or a changed player/catalogue API.

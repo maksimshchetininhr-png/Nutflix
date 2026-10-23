@@ -1,23 +1,21 @@
-# Nutflix TV 0.4.2 — player domain migration and startup recovery
+# Nutflix TV 0.5.0 — automatic player address checks
 
-Verified on 22 October 2026: framextv.xyz now redirects with HTTP 301 to framextv.cc. The new home/embed pages return HTTP 200. Earlier Nutflix versions restricted the player to the old host and blocked the new address. The metadata API remains reachable at api.framextv.tech. No reason for the operator’s domain change has been verified.
+Before Play and on Retry, the Android app checks its current player address for ordinary HTTPS redirects. A move to a new domain can be followed automatically while preserving the complete movie/episode URL, selected episode, title, and resume position. No manual link entry is needed.
 
-## Changes
+The working origin is remembered on the TV only after decoded video or advancing playback is detected. Future plays start there and check again. Remote player menus keep using the loaded page’s own origin. Selecting the optional source website also uses the last working origin.
 
-- Opens the documented player directly at framextv.cc. The old exact domain remains an explicit redirect alias; unrelated redirects are blocked.
-- Updated browser iframe policy, exact-origin messaging/telemetry, saved-link parsing, and optional source-website navigation for the new address.
-- Shows an opening message while video loads. If no decoded frame or advancing progress appears within 25 seconds, Retry/Back controls replace an indefinite blank screen.
-- Installs remote controls at first visible page commit as well as completion, so slow secondary resources do not delay video startup detection. Stale results from earlier loads are ignored.
-- Retains Matilda edition branding, five-second playback chrome hiding, remote quality/subtitle menus, and the search fixes.
+Discovery follows at most four HTTP redirects from a built-in or last-working embed. It rejects changed paths/queries, credentials, insecure/unusual ports, local/private destinations, loops, and non-HTML final responses. Page scripts, ads, and unrelated links cannot establish a new origin. HTTPS certificate checks remain enabled, and remote pages have no Android bridge.
+
+Checks run off the UI thread with a finite deadline. If a probe fails, the existing trusted player can still be tried. Back cancels pending results, and late callbacks cannot reopen a closed player. The existing loading indicator and 25-second video startup Retry/Back recovery remain available.
 
 ## Install/update
 
-Version 0.4.2, Android version code 6, package tv.nutflix. The signing certificate matches the published 0.4.1 and earlier builds. Install over your current version without uninstalling; My list and playback progress remain on the device. See INSTALL.md.
+Version 0.5.0, Android version code 7, package tv.nutflix. The signing certificate matches the published 0.4.2 and earlier builds. Install over your current version without uninstalling; My list and progress stay on the device. See INSTALL.md.
 
 ## Validation and limits
 
-Eleven unit/contract checks and twenty-seven browser tests passed. The production Java address policy also passed checks for current/legacy embeds, the verified provider redirect, and unsafe-address rejection. Browser tests use a bundled test video to distinguish a decoded frame from an empty player. APK version, signatures, and upgrade certificate compatibility were verified.
+Eleven core/contract checks and twenty-seven browser tests passed. Production Java address and resolver tests passed, including current-to-future-domain migrations, remembered-origin isolation, all supported redirect statuses, preserved episode/resume URLs, rejected targets, loops, request limits, cancellation, and local/public addresses. The live .xyz to .cc redirect was verified over normal HTTPS with its complete query unchanged. APK version, signatures, and upgrade compatibility were checked.
 
-The real redirect and current player control labels were checked over verified HTTPS. Actual source streaming, native timeout dialogs, and physical TV playback still need a device check. A successful HTML response does not guarantee an available video stream. No cloud trust-store or network-policy changes were made.
+Automatic discovery is an installed Android feature; browser iframe preview keeps a fixed origin policy. Service outages, removed redirects, JavaScript-only moves, changed embed formats, or redesigned catalogue/player APIs may still require an update. Physical TV playback and native UI behavior still need a device check.
 
-This is a sideloadable development build. No private signing key or service credentials are included.
+No cloud trust-store or network-policy changes were made. No private signing key or service credentials are included.
