@@ -1,21 +1,13 @@
-# Nutflix TV 0.5.0 — automatic player address checks
+# Nutflix TV 0.6.0 — updates directly from the TV
 
-Before Play and on Retry, the Android app checks its current player address for ordinary HTTPS redirects. A move to a new domain can be followed automatically while preserving the complete movie/episode URL, selected episode, title, and resume position. No manual link entry is needed.
+Settings now includes Check for updates as the first focused option. It checks GitHub for the latest published version and offers Download update when a newer build exists. The APK downloads on the TV with progress and Cancel, is verified, and opens Android’s installer. No computer or USB stick is needed for subsequent updates.
 
-The working origin is remembered on the TV only after decoded video or advancing playback is detected. Future plays start there and check again. Remote player menus keep using the loaded page’s own origin. Selecting the optional source website also uses the last working origin.
+The first in-app update may require Allow from this source for Nutflix. Android still asks you to confirm installation. Normal updates keep My list and playback progress. Install this 0.6 build once to add the update button; future builds can use it.
 
-Discovery follows at most four HTTP redirects from a built-in or last-working embed. It rejects changed paths/queries, credentials, insecure/unusual ports, local/private destinations, loops, and non-HTML final responses. Page scripts, ads, and unrelated links cannot establish a new origin. HTTPS certificate checks remain enabled, and remote pages have no Android bridge.
+The updater accepts only immutable APK links in this repository, verifies expected size and SHA-256, and checks the installed package/signing certificate and a newer version code. A read-only private content provider grants Android’s installer temporary access to the verified APK. No general storage permission is needed.
 
-Checks run off the UI thread with a finite deadline. If a probe fails, the existing trusted player can still be tried. Back cancels pending results, and late callbacks cannot reopen a closed player. The existing loading indicator and 25-second video startup Retry/Back recovery remain available.
+The published update manifest is refreshed atomically with each download release. It points to an immutable APK commit, so publishing another update cannot change the file being downloaded.
 
-## Install/update
+Version 0.6.0, Android version code 8, package tv.nutflix. The signing certificate matches the previously published builds. Install over the existing app without uninstalling.
 
-Version 0.5.0, Android version code 7, package tv.nutflix. The signing certificate matches the published 0.4.2 and earlier builds. Install over your current version without uninstalling; My list and progress stay on the device. See INSTALL.md.
-
-## Validation and limits
-
-Eleven core/contract checks and twenty-seven browser tests passed. Production Java address and resolver tests passed, including current-to-future-domain migrations, remembered-origin isolation, all supported redirect statuses, preserved episode/resume URLs, rejected targets, loops, request limits, cancellation, and local/public addresses. The live .xyz to .cc redirect was verified over normal HTTPS with its complete query unchanged. APK version, signatures, and upgrade compatibility were checked.
-
-Automatic discovery is an installed Android feature; browser iframe preview keeps a fixed origin policy. Service outages, removed redirects, JavaScript-only moves, changed embed formats, or redesigned catalogue/player APIs may still require an update. Physical TV playback and native UI behavior still need a device check.
-
-No cloud trust-store or network-policy changes were made. No private signing key or service credentials are included.
+Validation covers remote access to the button, browser fallback messaging, update URL/version/file/identity checks, the full catalogue/player regression suite, and signed Android builds. The real public manifest and its APK are downloaded and verified after publishing. Native installer and permission behavior still need a physical TV check. Existing source-stream and anime-metadata limitations remain unchanged.

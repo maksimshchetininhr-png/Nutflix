@@ -1,6 +1,20 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.5.0**, Android version code **7**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over version 0.1, 0.2, 0.3, or 0.4: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.6.0**, Android version code **8**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+
+## Updates directly on the TV
+
+Install version 0.6 once using the APK below. After that:
+
+1. Open Nutflix’s **N / Settings** button (or press Menu).
+2. Select **Check for updates**, then **Download update** if a newer build is available.
+3. Wait for download and verification. Cancel is available while it downloads.
+4. If Android asks, select **Open settings**, enable **Allow from this source** for Nutflix, then return to the app. This permission belongs to Nutflix separately from your file manager.
+5. Confirm **Install / Update** in Android’s installer. Reopen Nutflix if Android closes it after installation.
+
+A normal update preserves My list and playback progress. The updater never uninstalls the app. If already current, it shows your installed version. Failed or incomplete downloads can be retried using Check for updates. Permission menus vary by Philips model.
+
+Updates come only from the public Nutflix GitHub download branch. The app checks the APK’s file hash, package, newer version code, and matching signing certificate before opening the installer. Android performs its own final installation checks.
 
 ## Using a USB stick
 
