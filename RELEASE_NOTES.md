@@ -1,13 +1,17 @@
-# Nutflix TV 0.6.0 — updates directly from the TV
+# Nutflix TV 0.6.1 — Backup remote controls
 
-Settings now includes Check for updates as the first focused option. It checks GitHub for the latest published version and offers Download update when a newer build exists. The APK downloads on the TV with progress and Cancel, is verified, and opens Android’s installer. No computer or USB stick is needed for subsequent updates.
+Backup uses a separate embedded video player. Older Nutflix versions sent remote commands to FramexTV’s outer player, whose controls are removed when Backup is selected. This update routes commands into the actual Backup player, including full-screen nested frames.
 
-The first in-app update may require Allow from this source for Nutflix. Android still asks you to confirm installation. Normal updates keep My list and playback progress. Install this 0.6 build once to add the update button; future builds can use it.
+- OK plays/pauses the Backup video; left/right seek ten seconds during playback.
+- Down reaches its timeline/controls. Arrows and OK choose the subtitle and quality choices exposed by that source.
+- Back closes its menu, then hides controls, then returns Home.
+- Controls hide after five idle seconds while playing; paused video and open menus keep them visible. Captions are not hidden with the control bar.
+- Progress and decoded-frame status return to Nutflix for resume and startup detection.
 
-The updater accepts only immutable APK links in this repository, verifies expected size and SHA-256, and checks the installed package/signing certificate and a newer version code. A read-only private content provider grants Android’s installer temporary access to the verified APK. No general storage permission is needed.
+A recent Android System WebView is required for embedded-frame navigation. If that feature is missing, the app explains how to update System WebView; native keyboard fallback is retained. Availability and layout of subtitle/quality options depend on the provider.
 
-The published update manifest is refreshed atomically with each download release. It points to an immutable APK commit, so publishing another update cannot change the file being downloaded.
+Version 0.6.1, Android version code 9, package tv.nutflix. The signing key is unchanged. Install over the current app, or use Settings → Check for updates from version 0.6. My list and progress remain on the TV.
 
-Version 0.6.0, Android version code 8, package tv.nutflix. The signing certificate matches the previously published builds. Install over the existing app without uninstalling.
+Validation: eleven core/contract checks and thirty-five browser tests passed, including cross-origin and nested Backup frames, actual remote command routing, subtitle/quality selection, idle behavior, progress, and unrelated-message rejection. Native address/resolver/updater checks, APK build and signatures passed. Official AndroidX artifacts are checksum-pinned and Apache 2.0 notices are packaged. Remote frames have no Android interface.
 
-Validation covers remote access to the button, browser fallback messaging, update URL/version/file/identity checks, the full catalogue/player regression suite, and signed Android builds. The real public manifest and its APK are downloaded and verified after publishing. Native installer and permission behavior still need a physical TV check. Existing source-stream and anime-metadata limitations remain unchanged.
+The current public FramexTV code confirms the separate Backup iframe. Its live video page returned HTTP 403 in the cloud, so actual Backup playback/menus and WebView support still require a check on the TV. Fixture results do not establish provider compatibility. No certificate trust or source-access restrictions were bypassed.

@@ -1,10 +1,10 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.6.0**, Android version code **8**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.6.1**, Android version code **9**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
-Install version 0.6 once using the APK below. After that:
+Install version 0.6 or newer once using the APK. After that:
 
 1. Open Nutflix’s **N / Settings** button (or press Menu).
 2. Select **Check for updates**, then **Download update** if a newer build is available.
@@ -65,6 +65,10 @@ The normal catalogue is Nutflix’s own interface populated from FramexTV’s pu
 | Player timeline and menus | Left/right scrub the timeline or move between buttons; Down enters the button row; arrows + OK choose settings |
 | Player Back | Closes a menu, then hides controls, then returns Home |
 | App settings | Select the N profile button, or press Menu |
+
+Backup now receives remote commands inside its own player: OK pauses/plays, left/right seek, and Down opens its timeline or controls. Arrows and OK choose the subtitle/quality options supplied by that source. Back closes menus, then controls, then returns Home.
+
+If Backup shows an **update Android System WebView** message, update System WebView (and Chrome, if available) from the TV’s Play Store and reopen Nutflix. Embedded-frame navigation requires that browser feature.
 
 The player uses FramexTV’s real menus: select **Player Settings** for quality and other available options, **Subtitles / Captions** for named subtitle tracks, or the top **Server** button for available sources. Options depend on the current stream. The TV volume keys control TV audio.
 
