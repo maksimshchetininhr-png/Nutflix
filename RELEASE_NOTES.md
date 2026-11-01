@@ -1,11 +1,9 @@
-# Nutflix TV 0.7.0 — Automatic holiday themes
+# Nutflix TV 0.7.1 — Falling Christmas snow
 
-The catalogue now celebrates Halloween, Sint Maarten, Sinterklaas, Christmas, New Year, King’s Day and Easter automatically. Each has its own colours, decorations, seasonal greeting and little film/Matilda references. A small footer charm opens a remote-friendly surprise. Licensed vector artwork is bundled in the APK and works without seasonal downloads.
+Christmas now has gentle falling snow across the catalogue and menus. Small, softly visible flakes drift down with a little sideways motion. The decorative layer cannot take focus or intercept clicks, so arrows, OK, cards and buttons work as before.
 
-Themes run seven calendar days before and after each holiday, including both Christmas/Easter days. Dutch dates use Europe/Amsterdam; Easter and the King’s Day Sunday adjustment are calculated each year. The nearer holiday wins overlapping windows, with the other mentioned in the seasonal banner. The calendar refreshes each minute while visible and when the app resumes. No yearly builds are needed.
+The effect runs only when the automatic Christmas theme is active. It pauses when the page is hidden, stops when themes are switched off or the holiday changes, and is disabled for reduced-motion preferences. The fixed set of CSS animations needs no downloads or JavaScript rendering loop. Playback pages contain no seasonal snow overlay.
 
-Settings → Seasonal themes switches Automatic/Off and remembers the choice. Classic styling returns outside holiday windows. Catalogue focus and playback controls are retained; seasonal decorations do not appear over video. Keep the TV’s date/time correct.
+All seven automatic holidays and their annually calculated dates remain included. Version 0.7.1, Android version code 12, package tv.nutflix. Install over the current app through Settings → Check for updates or the APK. The existing signing key, My list and viewing progress are retained.
 
-Version 0.7.0, Android version code 11, package tv.nutflix. The existing signing key is retained: update over your current install using Settings → Check for updates or the APK. My list and progress stay on the TV.
-
-Validation: calendar boundaries, changing Easter dates through 2100, Dutch midnight/DST, year rollover and holiday overlaps; all seven layouts at TV/compact sizes, remote-only surprises/settings, saved preference/list retention and automatic refresh. The complete browser suite and production Java checks run before publishing; APK signatures and published download bytes are verified. Physical Philips TV appearance/installation remains a device check.
+Validation adds three browser checks for actual falling positions, input/remote access, suspension/resume, reduced motion, theme transitions/off and no overlay on the player page. The full calendar/browser suite, production Java checks, APK signing and published download verification run before release. Physical Philips TV appearance and installer interaction remain device checks.
