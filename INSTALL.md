@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.6.2**, Android version code **10**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.7.0**, Android version code **11**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
@@ -52,6 +52,12 @@ The cloud machine cannot directly connect to your home television. Run these com
 6. Select **Add to my list** to keep a title. Played titles with saved progress appear in **Continue watching**.
 
 The normal catalogue is Nutflix’s own interface populated from FramexTV’s public metadata service. No website browsing, manual title IDs, or pasted links are needed. The optional **Open source website** button is in Settings.
+
+## Automatic holiday themes
+
+Halloween, Sint Maarten, Sinterklaas, Christmas, New Year, King’s Day and Easter change the catalogue’s colours and decorations automatically. Each window includes seven days before and after the holiday (both Christmas and Easter days are included). The nearer holiday wins overlaps. Dutch dates use Europe/Amsterdam and the TV’s clock; Easter and King’s Day’s Sunday adjustment are calculated each year. Keep the TV’s date/time correct.
+
+Artwork is bundled, so seasonal decorations need no downloads or yearly updates. Look for little references in the decorations and a seasonal charm in the footer; select it with arrows and OK. Settings → Seasonal themes switches between Automatic and Off. Video playback remains free of seasonal decorations.
 
 ## Remote controls
 
