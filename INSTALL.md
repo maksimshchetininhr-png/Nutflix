@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.7.2**, Android version code **13**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.7.3**, Android version code **14**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
@@ -74,7 +74,7 @@ Artwork is bundled, so seasonal decorations need no downloads or yearly updates.
 | Player Back | Closes a menu, then hides controls, then returns Home |
 | App settings | Select the N profile button, or press Menu |
 
-Backup now receives remote commands inside its own player: OK pauses/plays, left/right seek, and Down opens its timeline or controls. With controls open, arrows move to the control in that on-screen direction, and OK selects it. Left/right stay on the current visual row; Up/down follow the column. At an edge, focus stays put. Icons and labels inside a button are one action. Back closes menus, then controls, then returns Home.
+Backup now receives remote commands inside its own player: OK pauses/plays, left/right seek, and Down opens its timeline or controls. With controls open, arrows move to the control in that on-screen direction, and OK selects it. Left/right stay on the current visual row; Up/down follow the column. At an edge, focus stays put. Icons and labels inside a button are one action. Back closes the current subtitle/settings submenu first (returning to a parent menu when provided), then controls, then returns Home. Closing the menu restores focus to its opening control.
 
 If Backup shows an **update Android System WebView** message, update System WebView (and Chrome, if available) from the TV’s Play Store and reopen Nutflix. Embedded-frame navigation requires that browser feature.
 

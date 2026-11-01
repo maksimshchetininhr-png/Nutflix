@@ -1,9 +1,9 @@
-# Nutflix TV 0.7.2 — Snow only while browsing
+# Nutflix TV 0.7.3 — Backup subtitle Back button
 
-Christmas snowfall now stops immediately when you select Play, before opening a movie, episode, personal video or test clip. It stays off during loading, playback and app resume while the player remains open. It returns only when you go back to browsing, including Back after a playback startup error.
+Back now reaches subtitle menus that listen for Escape on their page or focused option. Previously, Nutflix sent Escape directly to the window, skipping those listeners and leaving the submenu open. It also recognizes icon-only Back/Close actions through their title and detects subtitle panels linked by ARIA even without a menu role.
 
-The earlier version kept snow out of the player but could leave its animations running in the catalogue behind the native player. This update explicitly hides and stops those animations for the entire playback session. All seven holiday themes, automatic yearly dates, the reduced-motion preference and the seasonal off switch remain available.
+If Escape leaves the same popup open, a short, guarded fallback uses its associated expanded trigger. A submenu’s own Back action takes priority, so nested settings can return one level at a time. Closed Plyr menu wrappers no longer trap Back. Focus returns to the opening control; later Back presses hide controls and return to browsing. Delayed provider updates cannot make the fallback reopen an already closed menu.
 
-Version 0.7.2, Android version code 13, package tv.nutflix. Use Settings → Check for updates or install the APK over the current version. The retained signing key allows an ordinary update with My list/progress preserved.
+Version 0.7.3, Android version code 14, package tv.nutflix. Update through Settings → Check for updates or install over the current app. The retained signing key preserves My list and viewing progress. All holiday themes and browsing-only Christmas snow remain included.
 
-Validation covers snowfall stopped before all four playback handoffs, staying stopped through calendar/wake refresh, resuming on catalogue return, and remaining off after Christmas ends. Full browser/calendar checks, production Java policy checks, native compilation and signature/download verification run before publishing. Physical-TV lifecycle/installer behavior remains a device check.
+Validation: four new regressions failed before the fix; six new menu tests cover document Escape, trigger-only closure, nested/icon Back, ARIA panels, delayed closure and Plyr wrapper exit. Full browser/calendar, native build and Java policy checks run before publishing, followed by APK signature/download verification. Live Backup pages return HTTP 403 in the cloud, so provider-specific behavior on the physical TV remains unverified.
