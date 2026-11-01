@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.6.1**, Android version code **9**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.6.2**, Android version code **10**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
@@ -66,7 +66,7 @@ The normal catalogue is Nutflix’s own interface populated from FramexTV’s pu
 | Player Back | Closes a menu, then hides controls, then returns Home |
 | App settings | Select the N profile button, or press Menu |
 
-Backup now receives remote commands inside its own player: OK pauses/plays, left/right seek, and Down opens its timeline or controls. Arrows and OK choose the subtitle/quality options supplied by that source. Back closes menus, then controls, then returns Home.
+Backup now receives remote commands inside its own player: OK pauses/plays, left/right seek, and Down opens its timeline or controls. With controls open, arrows move to the control in that on-screen direction, and OK selects it. Left/right stay on the current visual row; Up/down follow the column. At an edge, focus stays put. Icons and labels inside a button are one action. Back closes menus, then controls, then returns Home.
 
 If Backup shows an **update Android System WebView** message, update System WebView (and Chrome, if available) from the TV’s Play Store and reopen Nutflix. Embedded-frame navigation requires that browser feature.
 
