@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.7.3**, Android version code **14**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.8.0**, Android version code **15**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
@@ -83,6 +83,10 @@ The player uses FramexTV’s real menus: select **Player Settings** for quality 
 The home title is **nutflix. Matilda edition**. While video plays, title and timeline overlays fade after **five seconds** without remote input. Paused playback and open menus keep controls visible. No separate +10s/−10s buttons are shown.
 
 Anime-specific search and detailed episode guides depend on the public AniList service. If that service rejects the connection, use Everything search or browse the Anime categories. The guide fallback is clearly labelled and lets you choose an episode number; it does not claim a known total count.
+
+## Default video quality
+
+The installed app selects the highest quality exposed by each player, preferring 1080p or higher when available, including Backup and its nested frames. It uses public player APIs or the existing quality controls during startup, with a bounded attempt and no stream extraction. Later manual quality changes are respected. Source changes start a fresh preference when detectable. If only lower resolutions exist, it keeps the best offered quality. A single-resolution video or a player without usable quality controls cannot be forced to 1080p. The browser iframe preview cannot reach cross-origin quality controls.
 
 ## Troubleshooting
 
