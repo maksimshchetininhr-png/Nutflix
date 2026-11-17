@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "packageName": "tv.nutflix",
-  "versionCode": 15,
-  "versionName": "0.8.0",
-  "sizeBytes": 998362,
-  "sha256": "0e3674e73d22522eb665943bfc2b488c1430ee5b2c25cfbeec84aacf3ce84a6a",
-  "apkUrl": "https://raw.githubusercontent.com/maksimshchetininhr-png/Nutflix/b6ab15d111b74a070e970a905fa1893a1256023b/Nutflix-TV.apk"
+  "versionCode": 16,
+  "versionName": "0.9.0",
+  "sizeBytes": 1002527,
+  "sha256": "8b554f794dddeac147e05901731b485cf1bfc2bc77824db7a92168f9694e6127",
+  "apkUrl": "https://raw.githubusercontent.com/maksimshchetininhr-png/Nutflix/a31cd5728668c214d0864bddf11a9edf78310361/Nutflix-TV.apk"
 }
