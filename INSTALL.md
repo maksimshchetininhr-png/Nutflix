@@ -1,6 +1,6 @@
 # Install Nutflix on Philips Android TV / Google TV
 
-Use `Nutflix-TV.apk` (version **0.8.0**, Android version code **15**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
+Use `Nutflix-TV.apk` (version **0.9.0**, Android version code **16**). This is a sideloadable development build for Android TV / Google TV, Android 6.0 or later. Install it over an earlier Nutflix version: the package name and signing key are unchanged, so you do not need to uninstall or clear app data.
 
 ## Updates directly on the TV
 
@@ -52,6 +52,16 @@ The cloud machine cannot directly connect to your home television. Run these com
 6. Select **Add to my list** to keep a title. Played titles with saved progress appear in **Continue watching**.
 
 The normal catalogue is Nutflix’s own interface populated from FramexTV’s public metadata service. No website browsing, manual title IDs, or pasted links are needed. The optional **Open source website** button is in Settings.
+
+## Continue watching, next episodes and Finished
+
+Continue watching has one card per series, using the most recently watched episode rather than the highest episode number. After that episode reaches the credits window, the card offers the next released episode, including the first episode of the following season. Finales and unaired episodes do not get a false next suggestion. Episode-guide failures leave playback available and allow retrying through the guide.
+
+During an episode, an optional **Next episode** card appears near the end once a released next episode is confirmed. It does not take focus or automatically skip playback. Press **Up**, then **OK** to start it. **Not now** dismisses the suggestion; Back also dismisses a focused suggestion. Player menus retain their own navigation. No episode is skipped just because the prompt appears.
+
+Without reliable per-title credits markers, the fallback is the last **two minutes** of an episode, capped at **10%** of runtime. Saved films move to **My list → Finished** in the last **five minutes**, capped at **5%** of runtime. These are estimates, not detected credits. **Watch again** starts a completed film from zero; saved titles are never deleted. Seeking back before the credits makes the current viewing unfinished again. Existing completion history is migrated where identifiable.
+
+Progress and completion stay on this TV. Next-episode metadata uses the same public catalogue; if a guide or the next stream is unavailable, return to the episode guide. The native prompt works from main/Backup playback telemetry; physical-TV remote behaviour remains a device check.
 
 ## Automatic holiday themes
 
